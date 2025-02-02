@@ -1,0 +1,56 @@
+create table Student_details(
+Sid char(6) not null primary key,
+Name varchar(25),
+Address varchar(35),
+Branch char(5) check(Branch in ('CSE','IT','EE','ECE','MCA','BCA')),
+Adm_Date date check(Adm_Date>to_date('01-06-2002', 'DD-MM-YYYY'))
+);
+
+
+create table Student_marks(
+Sid char(6) references Student_details(Sid),
+m_sub1 number(3) check(m_sub1 between 0 and 100),
+m_sub2 number(3) check(m_sub2 between 0 and 100),
+m_sub3 number(3) check(m_sub3 between 0 and 100)
+);
+
+
+insert into Student_details values('S3080','Farhan','Bardhaman','IT','28-aug-03');
+insert into Student_details values('S3071','Ranadeb','katwa','IT','02-sep-02');
+insert into Student_details values('S3065','Sharanya','Bardhaman','IT','12-sep-22');
+insert into Student_details values('S3063','Soumoyadip','bolgona','IT','20-sep-22');
+insert into Student_details values('S3058','Yaj','Galsi','IT','02-sep-22');
+insert into Student_details values('S3032','Pratyay','pandua','IT','20-aug-22');
+insert into Student_details values('S0005','Annesha','Salt lake','MCA','12-aug-02');
+insert into Student_details values('S3045','Tuman','Siliguri','EE','24-aug-22');
+insert into Student_details values('S3046','Anuj','Durgapur','ECE','16-aug-22');
+insert into Student_details values('S0068','Somnath','Rampurhat','BCA','01-oct-23');
+
+ 
+
+
+insert into Student_marks values('S3080',78,81,84);
+insert into Student_marks values('S3071',84,91,85);
+insert into Student_marks values('S3065',73,84,80);
+insert into Student_marks values('S3063',75,79,73);
+insert into Student_marks values('S3058',82,85,70);
+insert into Student_marks values('S3032',68,44,77);
+insert into Student_marks values('S0005',90,94,96);
+insert into Student_marks values('S3045',43,68,44);
+insert into Student_marks values('S3046',77,88,94);
+insert into Student_marks values('S0068',77,43,74);
+
+
+
+select Name, Branch from Student_details;
+select * from Student_details where name like 'A%';
+select * from Student_details where Branch = 'IT';
+select * from Student_details where Branch = 'MCA' and Address = 'Slat lake';
+select Name, Sid from Student_details where adm_date = to_date('28-08-2003','dd-mm-yyyy');
+select Name, Sid from Student_details where extract(year from adm_date) = 2002;
+select Sid,(m_sub1+m_sub2+m_sub3)as total_marks from Student_marks where Sid = 'S0005';
+select Sid from Student_marks where m_sub2 < 45;
+select Sid from Student_marks where m_sub1 < 45 and m_sub3 <45;
+select Sid from Student_marks where m_sub2 < 45 and m_sub3 >= 45 and m_sub3 >= 45;
+select Sid,((m_sub1+m_sub2+m_sub3)/300)*100 as percentage from Student_marks;
+
