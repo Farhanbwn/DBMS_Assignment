@@ -1,89 +1,11 @@
-1) 
-create table Circle (
-  radius number,
-  area number);
-
-declare
-x number := :Enter_Radius;
-y number := :Enter_another_Radius;
-pi number:=3.14;
-area number(10,2);
-begin
-area := pi*x*x;
-dbms_output.put_line('Radius: '||x ||' Area: '||area);
-insert into circle values(x,area);
-area := pi*y*y;
-dbms_output.put_line('Radius: '||y ||' Area: '||area);
-insert into circle values(y,area);
-end
-
-
-
-2)declare
-r circle.radius%type;
-ar circle.area%type;
-cursor cc is select * from circle;
-begin
-open cc;
-dbms_output.put_line('Radius --- Area');
-loop
-fetch cc into r,ar;
-exit when cc%notfound;
-dbms_output.put_line(r ||' --- ' || ar);
-end loop;
-close cc;
-end
-
-
-
-3)
-declare
-x  number := :Enter_a_number;
-y number := 0;
-z number;
-begin
-dbms_output.put_line('Original number: ' || x); 
-while x > 0 LOOP
-z := mod(x, 10);
-y := (y * 10) + z;
-x := trunc(x / 10);
-end loop;
-dbms_output.put_line('Inverted number: ' || y);
-end;
-
 
 
 4)
-declare
-x number(10):= :Enter_a_number;
-z number(10):=0;
-begin
-loop
-if(x=0) then
-dbms_output.put_line('Sum of the Digit is: '||z);
-exit;
-end if;
-z:=z+remainder(num,10);
-x:=x/10;
-end loop;
-end;
+
 
 
 
 5)
-declare
-n1 number(10):= :Enter_1st_number;
-n2 number(10):= :Enter_2nd_number;
-n3 number(10):= :Enter_3rd_number;
-begin
-if(n1>n2 and n1>n3) then
-dbms_output.put_line('Maximum number is: '||n1);
-elsif(n2>n1 and n2>n3) then
-dbms_output.put_line('Maximum number is: '||n2);
-else
-dbms_output.put_line('Maximum number is: '||n3);
-end if;
-end;
 
 
 

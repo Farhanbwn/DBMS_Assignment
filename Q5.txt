@@ -1,0 +1,15 @@
+5. Write a PL/SQL function, which returns maximum of three numbers. 
+
+declare
+n1 number(10)= Enter_1st_number;
+n2 number(10)= Enter_2nd_number;
+n3 number(10)= Enter_3rd_number;
+begin
+if(n1n2 and n1n3) then
+dbms_output.put_line('Maximum number is 'n1);
+elsif(n2n1 and n2n3) then
+dbms_output.put_line('Maximum number is 'n2);
+else
+dbms_output.put_line('Maximum number is 'n3);
+end if;
+end;

@@ -1,0 +1,17 @@
+2. Print the number of records in the Circle table (from problem no. 1) with the help of a cursor. 
+
+
+declare
+r circle.radius%type;
+ar circle.area%type;
+cursor cc is select * from circle;
+begin
+open cc;
+dbms_output.put_line('Radius --- Area');
+loop
+fetch cc into r,ar;
+exit when cc%notfound;
+dbms_output.put_line(r ||' --- ' || ar);
+end loop;
+close cc;
+end

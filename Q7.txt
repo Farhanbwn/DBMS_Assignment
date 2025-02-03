@@ -1,0 +1,19 @@
+7. Write a PL/SQL code block to find the prime number from a series of number.
+
+
+declare
+val number(10):= :Enter_a_number;
+temp number:=0;
+begin
+for i in 2..val-1 loop
+if(remainder(val,i)=0)
+then 
+dbms_output.put_line('This is not a Prime number');
+temp:=1;
+exit;
+end if;
+end loop;
+if(temp=0) then
+dbms_output.put_line('This is a Prime number');
+end if;
+end;

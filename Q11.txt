@@ -1,0 +1,13 @@
+11. Write a PL/SQL. program that will accept name and then display its proper case (E.g. jim 
+morrision Output J.Morrision)
+
+
+declare
+x varchar2(100):=:Enter_your_name;
+z number;
+len number;
+begin
+z:=instr(x,' ');
+len:=length(x);
+dbms_output.put_line(initcap(substr(x,1,1))||'.'||initcap(substr(x,z+1,len-z)));
+end;

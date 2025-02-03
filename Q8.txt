@@ -1,0 +1,16 @@
+8. Write a PL/SQL program to print first Fibonacci number. 
+
+
+declare
+a number:=0;
+b number:=1;
+c number:=0;
+x number := :Enter_Fibonacci_length;
+begin
+for i in 1..x loop
+a:=b;
+b:=c;
+dbms_output.put_line(c);
+c:=a+b;
+end loop;
+end;

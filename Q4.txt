@@ -1,0 +1,15 @@
+4. Write a PL/SQL code block to calculate the sum of all the digits of a number.
+
+declare
+x number(10):= :Enter_a_number;
+z number(10):=0;
+begin
+loop
+if(x=0) then
+dbms_output.put_line('Sum of the Digit is: '||z);
+exit;
+end if;
+z:=z+remainder(num,10);
+x:=x/10;
+end loop;
+end;

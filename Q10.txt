@@ -1,0 +1,26 @@
+10. Write a PL/SQL code that will accept a number and check if the number is Amstrong or not. 
+
+
+declare
+x number(10):= :Enter_a_number;
+z number(10):=0;
+v number:=x;
+a number:=0;
+b number;
+begin
+while x > 0 loop
+x:=x/10;
+a:=a+1;
+end loop;
+x:=v;
+while x > 0 loop
+b:=mod(x,10);
+x:=trunc(x/10);
+z:=z+power(b,a);
+end loop;
+if(v=z) then
+dbms_output.put_line('This is a Amstrong number');
+else
+dbms_output.put_line('This is not a Amstrong number');
+end if;
+end;
