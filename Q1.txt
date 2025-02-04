@@ -1,0 +1,21 @@
+1. Write a PL/SQL code block to calculate the area for a value of radius varying from x toy (x & y will 
+be given by the user). Store the radius and the corresponding values of calculated areas in table 
+Circle (radius, area) 
+
+create table Circle (
+  radius number,
+  area number);
+
+declare
+x number := :Enter_Radius;
+y number := :Enter_another_Radius;
+pi number:=3.14;
+area number(10,2);
+begin
+area := pi*x*x;
+dbms_output.put_line('Radius: '||x ||' Area: '||area);
+insert into circle values(x,area);
+area := pi*y*y;
+dbms_output.put_line('Radius: '||y ||' Area: '||area);
+insert into circle values(y,area);
+end
